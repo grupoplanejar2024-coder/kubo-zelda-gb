@@ -97,16 +97,12 @@
 
             window.EJS_player = "#game";
             window.EJS_core = "gb"; 
-            window.EJS_gameUrl = "zelda.gb"; // Certifique-se de que sua ROM na raiz se chama zelda.gb
+            window.EJS_gameUrl = "zelda.gb"; 
             window.EJS_startOnLoaded = true;
             window.EJS_disableDatabases = true;
-            window.EJS_pathelement = "";
-            
-            // Configurações para bloquear propagandas e telas de load desnecessárias
-            window.EJS_adblocked = true;
 
             let script = document.createElement('script');
-            script.src = "https://www.emulatorjs.com/loader.js";
+            script.src = "https://cdn.emulatorjs.net/stable/data/loader.js";
             document.body.appendChild(script);
         }
     </script>
