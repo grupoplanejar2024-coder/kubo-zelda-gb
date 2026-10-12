@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Legend of Zelda - Game Boy | Kubo 3D</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            max-width: 400px;
+            padding: 20px;
+            background: #1e1e1e;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .cover {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #00ffcc;
+        }
+        p {
+            font-size: 0.95rem;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .btn-play {
+            background-color: #00ffcc;
+            color: #121212;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-play:hover {
+            background-color: #00cca3;
+        }
+        #game-container {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #000;
+            z-index: 999;
+        }
+        #game {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tela Inicial com Capa, Descrição e Botão Jogar -->
+    <div class="container" id="menu">
+        <img src="capa.jpg" alt="Capa do Jogo" class="cover">
+        <h1>The Legend of Zelda: Link's Awakening</h1>
+        <p>Explore a misteriosa Ilha Koholint nesta aventura clássica de Game Boy. Jogue diretamente pelo navegador ou via cartucho NFC Kubo 3D!</p>
+        <button class="btn-play" onclick="iniciarJogo()">JOGAR AGORA</button>
+    </div>
+
+    <!-- Tela do Emulador -->
+    <div id="game-container">
+        <div id="game"></div>
+    </div>
+
+    <script>
+        function iniciarJogo() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('game-container').style.display = 'block';
+
+            EJS_player = "#game";
+            EJS_core = "gb"; 
+            EJS_gameUrl = "zelda.gb"; 
+            EJS_startOnLoaded = true;
+
+            let script = document.createElement('script');
+            script.src = "https://www.emulatorjs.com/loader.js";
+            document.body.appendChild(script);
+        }
+    </script>
+
+</body>
+</html>
